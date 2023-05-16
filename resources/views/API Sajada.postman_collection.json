@@ -1,0 +1,2621 @@
+{
+	"info": {
+		"_postman_id": "13f248b1-9531-49c3-95f0-f6d1c76cfa90",
+		"name": "API Sajada",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9037119"
+	},
+	"item": [
+		{
+			"name": "Sajada Back",
+			"item": [
+				{
+					"name": "Ref",
+					"item": [
+						{
+							"name": "Typologi Masjid",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}referensi/typologi?id=3&type_for=Masjid",
+									"host": [
+										"{{url}}referensi"
+									],
+									"path": [
+										"typologi"
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "3",
+											"description": "id typografi => boleh kosong"
+										},
+										{
+											"key": "type_for",
+											"value": "Masjid",
+											"description": "Masjid, Mushola => boleh kosong"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Provinsi",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}ref/provinsi",
+									"host": [
+										"{{url}}ref"
+									],
+									"path": [
+										"provinsi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Kabupaten",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}ref/kabupaten",
+									"host": [
+										"{{url}}ref"
+									],
+									"path": [
+										"kabupaten"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Kabupaten by Provinsi",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "kode_provinsi",
+											"value": "1100",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}ref/kabupatenByProvinsi",
+									"host": [
+										"{{url}}ref"
+									],
+									"path": [
+										"kabupatenByProvinsi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Kecamatan",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}ref/kecamatan",
+									"host": [
+										"{{url}}ref"
+									],
+									"path": [
+										"kecamatan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Kecamatan by Kabupaten",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "kode_kabupaten",
+											"value": "1101",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}ref/kecamatanByKabupaten",
+									"host": [
+										"{{url}}ref"
+									],
+									"path": [
+										"kecamatanByKabupaten"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Masjid",
+					"item": [
+						{
+							"name": "Masjid",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"",
+											"pm.test(\"Response time is less than 800ms\", function (){",
+											"    pm.expect(pm.response.responseTime).to.be.below(800);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}masjid",
+									"host": [
+										"{{url}}masjid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Profil Masjid",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "value",
+											"value": "{{token}}",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_masjid",
+											"value": "4f8f04e7-85b5-11ed-ada1-3a3343e72d82",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}masjid/profil/4f8f04e7-85b5-11ed-ada1-3a3343e72d82",
+									"host": [
+										"{{url}}masjid"
+									],
+									"path": [
+										"profil",
+										"4f8f04e7-85b5-11ed-ada1-3a3343e72d82"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Profil Masjid",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id_masjid",
+													"value": "f71ca794-b7b6-11ec-94ff-e4e749200ba1",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}masjid/profil",
+											"host": [
+												"{{url}}masjid"
+											],
+											"path": [
+												"profil"
+											]
+										}
+									},
+									"status": "Not Found",
+									"code": 404,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "nginx/1.23.3"
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 03 May 2023 04:22:36 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "X-Powered-By",
+											"value": "PHP/7.1.33"
+										},
+										{
+											"key": "Expires",
+											"value": "Thu, 19 Nov 1981 08:52:00 GMT"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "no-store, no-cache, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "app_sessions=8f096b8f2a5b585630ed6893ca6e20c3d7b561c8; expires=Wed, 03-May-2023 06:22:36 GMT; Max-Age=7200; path=/; SameSite=Lax; HttpOnly"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Origin ,X-Requested-With ,Content-Type ,Accept ,Access-Control-Request-Method ,Access-Control-Allow-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET ,POST ,OPTIONS ,PUT ,PATCH ,DELETE"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"code\": 404,\n    \"message\": \"Masjid Tidak Ditemukan\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Profil Masjid",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMDkgMDY6MTM6MjUifQ.xbAVQ9cMq-ItRNUMRMXIMrJvHg1esTpUqyswc6hcK4o",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "Masjid an nur",
+											"type": "text"
+										},
+										{
+											"key": "no_telp",
+											"value": "123",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "alamat_website",
+											"value": "dinoyo",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "status",
+											"value": "0",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}masjid/updateProfil",
+									"host": [
+										"{{url}}masjid"
+									],
+									"path": [
+										"updateProfil"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rev - Registrasi Masjid",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"nama\" : \"Masjid Nurul Rohmah\",\r\n    \"type\" : \"Masjid\",\r\n    \"id_ref_typologi\" : \"1\",\r\n    \"no_hp\" : \"095735209122\",\r\n    \"email\" : \"nickyerlangga23@gmail.com\",\r\n    \"latitude\" : \"79999988\",\r\n    \"longitude\" : \"-11200000\",\r\n    \"alamat\" : \"Jalan Candi VIC. 3030 Malang\",\r\n    \"kode_provinsi\" : \"3500\",\r\n    \"kode_kabupaten\" : \"3521\",\r\n    \"kode_kecamatan\" : \"352104\",\r\n    \"jabatan_takmir\" : \"Ketua\",\r\n    \"no_telp_masjid\" : \"035510099881\",\r\n    \"nama_pj_takmir\" : \"Ningsih Susilo\",\r\n    \"password\" : \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}masjid",
+									"host": [
+										"{{url}}masjid"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Jamaah By Id Masjid",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "tokenkey",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMTItMDcgMTA6MTM6MjUifQ.2qKyyq2oMlLYDUYsy0dKv9UT9DCOaFwpPLN8qwfNwus",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{url}}jamaah/get_jamaah_by_masjid?id_masjid=c6373d67-d75c-11ed-b059-3a3343e72d82",
+									"host": [
+										"{{url}}jamaah"
+									],
+									"path": [
+										"get_jamaah_by_masjid"
+									],
+									"query": [
+										{
+											"key": "id_masjid",
+											"value": "c6373d67-d75c-11ed-b059-3a3343e72d82"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Auth",
+					"item": [
+						{
+							"name": "Registrasi",
+							"item": [
+								{
+									"name": "Register Jamaah",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "nama",
+													"value": "nicky",
+													"type": "text"
+												},
+												{
+													"key": "email",
+													"value": "nickyerlangga34@gmail.com",
+													"type": "text"
+												},
+												{
+													"key": "no_hp",
+													"value": "081249553550",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12345",
+													"type": "text"
+												},
+												{
+													"key": "confirm_password",
+													"value": "12345",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}auth/registrasi",
+											"host": [
+												"{{url}}auth"
+											],
+											"path": [
+												"registrasi"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Verifikasi Register",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "otp",
+													"value": "1774",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}auth/verifikasi_register",
+											"host": [
+												"{{url}}auth"
+											],
+											"path": [
+												"verifikasi_register"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Request OTP Baru",
+									"request": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "",
+												"value": "",
+												"type": "text",
+												"disabled": true
+											}
+										],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:80/api/auth/request_otp",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"auth",
+												"request_otp"
+											]
+										}
+									},
+									"response": []
+								}
+							],
+							"auth": {
+								"type": "noauth"
+							},
+							"event": [
+								{
+									"listen": "prerequest",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								},
+								{
+									"listen": "test",
+									"script": {
+										"type": "text/javascript",
+										"exec": [
+											""
+										]
+									}
+								}
+							]
+						},
+						{
+							"name": "Reset Password",
+							"item": [
+								{
+									"name": "Request Reset Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "email",
+													"value": "jaya@gmail.com",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}auth/request_reset_password",
+											"host": [
+												"{{url}}auth"
+											],
+											"path": [
+												"request_reset_password"
+											]
+										}
+									},
+									"response": []
+								},
+								{
+									"name": "Reset Password",
+									"request": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "token_key",
+													"value": "dbc2",
+													"type": "text"
+												},
+												{
+													"key": "password",
+													"value": "12345",
+													"type": "text"
+												}
+											]
+										},
+										"url": {
+											"raw": "{{url}}auth/reset_password",
+											"host": [
+												"{{url}}auth"
+											],
+											"path": [
+												"reset_password"
+											]
+										}
+									},
+									"response": []
+								}
+							]
+						},
+						{
+							"name": "Login",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDc6MTM6MzYifQ.ywa6RSg1qsAj35V94-uZDapRkYjY45xcFC6qOnW3lbc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "",
+										"value": "",
+										"type": "text",
+										"disabled": true
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "username",
+											"value": "jaya@gmail.com",
+											"description": "Role jamaah",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "Role jamaah",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "username",
+											"value": "arrahman@gmail.com",
+											"description": "Role Takmir",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"description": "Role Takmir",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}auth/login",
+									"host": [
+										"{{url}}auth"
+									],
+									"path": [
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "isValidToken",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "token_key",
+											"value": "1319",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}auth/isvalidToken",
+									"host": [
+										"{{url}}auth"
+									],
+									"path": [
+										"isvalidToken"
+									],
+									"query": [
+										{
+											"key": "",
+											"value": "",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Pengurus",
+					"item": [
+						{
+							"name": "Add Pengurus",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDU6Mzk6MjMifQ.Q_HTJT90xA7YPV8NwMzQr-To_5id2DZkO14XjSXEcDw",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_masjid",
+											"value": "f71ca794-b7b6-11ec-94ff-e4e749200ba1",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "bagusadhy",
+											"type": "text"
+										},
+										{
+											"key": "jenis_kelamin",
+											"value": "Laki-Laki",
+											"type": "text"
+										},
+										{
+											"key": "no_hp",
+											"value": "1234567",
+											"type": "text"
+										},
+										{
+											"key": "alamat",
+											"value": "mapane",
+											"type": "text"
+										},
+										{
+											"key": "tanggal_lahir",
+											"value": "2001-12-13",
+											"type": "text"
+										},
+										{
+											"key": "tempat_lahir",
+											"value": "palu",
+											"type": "text"
+										},
+										{
+											"key": "email",
+											"value": "bagus.adhy182@gmail.com",
+											"type": "text"
+										},
+										{
+											"key": "url_foto",
+											"type": "file",
+											"src": "/C:/Users/bagus/Pictures/Screenshots/Screenshot (1).png"
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "kode_kabupaten",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/pengurus/add_pengurus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pengurus",
+										"add_pengurus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Pengurus",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDQ6MzI6MjQifQ.WfzVOpa6Pv0VlbVsgg8n0GbAroe1lT7AM1WZ9JcKk5k",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_pengurus",
+											"value": "00114a3f-b438-49bc-b1d2-9eee8d909ccd",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}pengurus/get_pengurus",
+									"host": [
+										"{{url}}pengurus"
+									],
+									"path": [
+										"get_pengurus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Pengurus",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTAiLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTEyIDA2OjMwOjA4In0.PS0yateKEM4ld6VCAy60yolEtv1zcqaDIfubXHj-UOw",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nama",
+											"value": "Bagus Adhy Prasetyo",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "url_foto",
+											"type": "file",
+											"src": "/C:/Users/bagus/Pictures/Screenshots/Screenshot (1).png"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}pengurus/update_pengurus",
+									"host": [
+										"{{url}}pengurus"
+									],
+									"path": [
+										"update_pengurus"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Pengurus",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDc6MTM6MzYifQ.ywa6RSg1qsAj35V94-uZDapRkYjY45xcFC6qOnW3lbc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_pengurus",
+											"value": "aafa3a8f-bd39-11ec-855a-d8c4975e5ef9",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/pengurus/delete_pengurus",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"pengurus",
+										"delete_pengurus"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Kas",
+					"item": [
+						{
+							"name": "Add Kas",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE4IDA4OjA5OjQ0In0.m0daV_JsUJovTrqJ0x-BWM8IL5qU4KG8B0ojyBvVhvg",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_masjid",
+											"value": "f71ca794-b7b6-11ec-94ff-e4e749200ba1",
+											"type": "text"
+										},
+										{
+											"key": "nominal",
+											"value": "2000",
+											"type": "text"
+										},
+										{
+											"key": "keterangan",
+											"value": "kas bulan ini",
+											"type": "text"
+										},
+										{
+											"key": "url_bukti",
+											"value": "disini",
+											"type": "text"
+										},
+										{
+											"key": "tanggal",
+											"value": "2022-10-13",
+											"type": "text"
+										},
+										{
+											"key": "tipe_transaksi",
+											"value": "IN",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/kas/add_kas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"kas",
+										"add_kas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Kas",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDc6MTM6MzYifQ.ywa6RSg1qsAj35V94-uZDapRkYjY45xcFC6qOnW3lbc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_kas",
+											"value": "e97e79e6-d2a5-11ec-8e95-d8c4975e5ef9",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}kas/get_kas",
+									"host": [
+										"{{url}}kas"
+									],
+									"path": [
+										"get_kas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Kas",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDc6MTM6MzYifQ.ywa6RSg1qsAj35V94-uZDapRkYjY45xcFC6qOnW3lbc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_kas",
+											"value": "e97e79e6-d2a5-11ec-8e95-d8c4975e5e",
+											"type": "text"
+										},
+										{
+											"key": "id_masjid",
+											"value": "f71ca794-b7b6-11ec-94ff-e4e749200ba1",
+											"type": "text"
+										},
+										{
+											"key": "nominal",
+											"value": "5000",
+											"type": "text"
+										},
+										{
+											"key": "keterangan",
+											"value": "update kas",
+											"type": "text"
+										},
+										{
+											"key": "url_bukti",
+											"value": "disitu",
+											"type": "text"
+										},
+										{
+											"key": "tanggal",
+											"value": "2022-12-12",
+											"type": "text"
+										},
+										{
+											"key": "tipe_transaksi",
+											"value": "IN",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/kas/update_kas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"kas",
+										"update_kas"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Kas",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMSIsImlkX2dyb3VwIjoiMSIsInRpbWVzdGFtcCI6IjIwMjItMDQtMTIgMDc6MTM6MzYifQ.ywa6RSg1qsAj35V94-uZDapRkYjY45xcFC6qOnW3lbc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_kas",
+											"value": "e97e79e6-d2a5-11ec-8e95-d8c4975e5ef9",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/kas/delete_kas",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"kas",
+										"delete_kas"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Jamaah",
+					"item": [
+						{
+							"name": "Add Jamaah",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE2IDA0OjA0OjEyIn0.RMoKJZpolqWPccNKEONavyQwFOUNSQf_-kuI7IN-pqA",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_masjid",
+											"value": "f71ca794-b7b6-11ec-94ff-e4e749200ba1",
+											"type": "text"
+										},
+										{
+											"key": "nama",
+											"value": "Nurhafizah",
+											"type": "text"
+										},
+										{
+											"key": "jenis_kelamin",
+											"value": "Perempuan",
+											"type": "text"
+										},
+										{
+											"key": "no_hp",
+											"value": "12345678",
+											"type": "text"
+										},
+										{
+											"key": "alamat",
+											"value": "Poso",
+											"type": "text"
+										},
+										{
+											"key": "tanggal_lahir",
+											"value": "2001-03-08",
+											"type": "text"
+										},
+										{
+											"key": "tempat_lahir",
+											"value": "Poso",
+											"type": "text"
+										},
+										{
+											"key": "url_foto",
+											"type": "file",
+											"src": "/C:/Users/bagus/Pictures/Screenshots/Screenshot (4).png"
+										},
+										{
+											"key": "kode_provinsi",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "kode_kabupaten",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "kode_kecamatan",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "password",
+											"value": "12345",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/jamaah/add_jamaah",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"jamaah",
+										"add_jamaah"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Jamaah",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTE2IDAzOjQzOjI1In0.-8NCrtUx0fYyMqQF46xsaCE_E0O7uL7KU2Dw0HlTG9U",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [
+									{
+										"key": "Tokenkey",
+										"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMjY4IiwiaWRfZ3JvdXAiOiIyIiwidGltZXN0YW1wIjoiMjAyMy0wNC0xMiAxNDoyOTozMyJ9.mfa9XZ04uaI_XEGAXY3L9RyPz4rYgM9UMWKU_9jnncw",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_user",
+											"value": "102",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}jamaah/get_jamaah",
+									"host": [
+										"{{url}}jamaah"
+									],
+									"path": [
+										"get_jamaah"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Jamaah",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTE3IDA0OjE1OjEwIn0.LMwY9BRDfyYXOp5q6SQEe4FEKDcjSYNFToOe8b_JIOc",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_user",
+											"value": "27",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "nama",
+											"value": "Bagus adhy",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "url_foto",
+											"type": "file",
+											"src": "/C:/Users/bagus/Downloads/selfi.jpeg"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/jamaah/update_jamaah",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"jamaah",
+										"update_jamaah"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Update Jamaah",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "formdata",
+											"formdata": [
+												{
+													"key": "id_user",
+													"value": "",
+													"type": "text",
+													"disabled": true
+												},
+												{
+													"key": "nama",
+													"value": "",
+													"type": "text"
+												},
+												{
+													"key": "url_foto",
+													"type": "file",
+													"src": []
+												}
+											]
+										},
+										"url": {
+											"raw": "http://localhost:80/api/jamaah/update_jamaah",
+											"protocol": "http",
+											"host": [
+												"localhost"
+											],
+											"port": "80",
+											"path": [
+												"api",
+												"jamaah",
+												"update_jamaah"
+											]
+										}
+									},
+									"_postman_previewlanguage": "Text",
+									"header": [],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						},
+						{
+							"name": "Delete Jamaah",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE2IDA0OjA0OjEyIn0.RMoKJZpolqWPccNKEONavyQwFOUNSQf_-kuI7IN-pqA",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "http://localhost:80/api/jamaah/delete_jamaah",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"jamaah",
+										"delete_jamaah"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Berita",
+					"item": [
+						{
+							"name": "Get Berita",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE4IDA4OjA5OjQ0In0.m0daV_JsUJovTrqJ0x-BWM8IL5qU4KG8B0ojyBvVhvg",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}berita/berita",
+									"host": [
+										"{{url}}berita"
+									],
+									"path": [
+										"berita"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Add Berita",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "judul",
+											"value": "halo",
+											"type": "text"
+										},
+										{
+											"key": "deskripsi",
+											"value": "membuat berita halo",
+											"type": "text"
+										},
+										{
+											"key": "image_berita",
+											"type": "file",
+											"src": "/C:/Users/bagus/Pictures/Screenshots/bagus adhy prasetyo.png"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/berita/add_berita",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"berita",
+										"add_berita"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update Berita",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE4IDA4OjA5OjQ0In0.m0daV_JsUJovTrqJ0x-BWM8IL5qU4KG8B0ojyBvVhvg",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_berita",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "judul",
+											"value": "memahami cinta dalam islam part",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/berita/update_berita",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"berita",
+										"update_berita"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete Berita",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA0LTE4IDA4OjA5OjQ0In0.m0daV_JsUJovTrqJ0x-BWM8IL5qU4KG8B0ojyBvVhvg",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_berita",
+											"value": "10",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/berita/delete_berita",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"berita",
+										"delete_berita"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Tabungan",
+					"item": [
+						{
+							"name": "Get Paket Tabungan",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}tabungan/getTabungan",
+									"host": [
+										"{{url}}tabungan"
+									],
+									"path": [
+										"getTabungan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Tagihan Jamaah",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:80/api/tabungan/getTagihan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"tabungan",
+										"getTagihan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Daftar Tabungan Baru",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "id_user",
+											"value": "11",
+											"type": "text"
+										},
+										{
+											"key": "ref_tabungan",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "jumlah_hewan",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "batas_pelunasan",
+											"value": "22 Jan 2022",
+											"type": "text"
+										},
+										{
+											"key": "harga_qurban",
+											"value": "200",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/tabungan/addTabungan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"tabungan",
+										"addTabungan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bayar Tagihan",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nominal",
+											"value": "6000000",
+											"type": "text"
+										},
+										{
+											"key": "metode_pembayaran",
+											"value": "OVO",
+											"type": "text"
+										},
+										{
+											"key": "transaksi",
+											"value": "Donasi Ke Siapa Ya",
+											"type": "text"
+										},
+										{
+											"key": "tabungan_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "no_hp",
+											"value": "082247226898",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:80/api/tabungan/bayar_tagihan",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "80",
+									"path": [
+										"api",
+										"tabungan",
+										"bayar_tagihan"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Riwayat Pembayaran Tabungan",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTE5IDEwOjUwOjI0In0.w-mdIpTSnkzZGhMGVcuvxcZ8horUlbDSJ__VdYQgQXI",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "https://1d3c-125-166-13-103.ap.ngrok.io/api/payment/riwayat_transaksi_tabungan",
+									"protocol": "https",
+									"host": [
+										"1d3c-125-166-13-103",
+										"ap",
+										"ngrok",
+										"io"
+									],
+									"path": [
+										"api",
+										"payment",
+										"riwayat_transaksi_tabungan"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payment",
+					"item": [
+						{
+							"name": "Request Transaksi",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTE5IDEwOjUwOjI0In0.w-mdIpTSnkzZGhMGVcuvxcZ8horUlbDSJ__VdYQgQXI",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "nominal",
+											"value": "600000",
+											"type": "text"
+										},
+										{
+											"key": "metode_pembayaran",
+											"value": "BRIVA",
+											"type": "text"
+										},
+										{
+											"key": "transaksi",
+											"value": "Donasi Ke Siapa Ya",
+											"type": "text"
+										},
+										{
+											"key": "tabungan_id",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}payment/request_transaksi",
+									"host": [
+										"{{url}}payment"
+									],
+									"path": [
+										"request_transaksi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Channel Pembayaran",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": []
+								},
+								"url": {
+									"raw": "https://1ff3-140-0-36-196.ap.ngrok.io/api/payment/channel_pembayaran",
+									"protocol": "https",
+									"host": [
+										"1ff3-140-0-36-196",
+										"ap",
+										"ngrok",
+										"io"
+									],
+									"path": [
+										"api",
+										"payment",
+										"channel_pembayaran"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Donasi",
+					"item": [
+						{
+							"name": "Get All Donasi and Detail",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}donasi",
+									"host": [
+										"{{url}}donasi"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Bayar Donasi",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "key",
+											"value": "Tokenkey",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTEiLCJpZF9ncm91cCI6IjMiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTA3IDAzOjMzOjU1In0.yFYXzSswPMoR9Usnn6ORl03ioljfyaB0ozjTWcxkN7w",
+											"type": "string"
+										},
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "donasi_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "metode_pembayaran_id",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "metode_pembayaran_type",
+											"value": "1",
+											"type": "text"
+										},
+										{
+											"key": "nominal",
+											"value": "500000",
+											"type": "text"
+										},
+										{
+											"key": "keterangan",
+											"value": "Ingin donasi aja sih",
+											"type": "text"
+										},
+										{
+											"key": "is_anonim",
+											"value": "1",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{url}}donasi/",
+									"host": [
+										"{{url}}donasi"
+									],
+									"path": [
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "video",
+					"item": [
+						{
+							"name": "Get List Video",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}video/video/1",
+									"host": [
+										"{{url}}video"
+									],
+									"path": [
+										"video",
+										"1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Get List Video",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}video/video/1",
+											"host": [
+												"{{url}}video"
+											],
+											"path": [
+												"video",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 13 Apr 2023 03:58:42 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.18 (Ubuntu)"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=63072000; includeSubdomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Expires",
+											"value": "Wed, 11 Jan 1984 05:00:00 GMT"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Origin ,X-Requested-With ,Content-Type ,Accept ,Access-Control-Request-Method ,Access-Control-Allow-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET ,POST ,OPTIONS ,PUT ,PATCH ,DELETE"
+										},
+										{
+											"key": "Content-Length",
+											"value": "7917"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"List video\",\n    \"data\": [\n        {\n            \"id\": \"130\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [\n                {\n                    \"id\": \"6\",\n                    \"nama\": \"Kutbah\"\n                }\n            ]\n        },\n        {\n            \"id\": \"131\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"132\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"133\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"134\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [\n                {\n                    \"id\": \"2\",\n                    \"nama\": \"Sholawat\"\n                }\n            ]\n        },\n        {\n            \"id\": \"135\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"136\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"137\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"138\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        },\n        {\n            \"id\": \"139\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": []\n        }\n    ],\n    \"meta\": {\n        \"page\": \"1\",\n        \"per_page\": 10,\n        \"total\": 35,\n        \"total_page\": 4\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Detail Video",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}video/detail/172",
+									"host": [
+										"{{url}}video"
+									],
+									"path": [
+										"detail",
+										"172"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Detail Video",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"url": {
+											"raw": "{{url}}video/detail/1",
+											"host": [
+												"{{url}}video"
+											],
+											"path": [
+												"detail",
+												"1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Date",
+											"value": "Thu, 13 Apr 2023 03:57:39 GMT"
+										},
+										{
+											"key": "Server",
+											"value": "Apache/2.4.18 (Ubuntu)"
+										},
+										{
+											"key": "Strict-Transport-Security",
+											"value": "max-age=63072000; includeSubdomains"
+										},
+										{
+											"key": "X-Frame-Options",
+											"value": "SAMEORIGIN"
+										},
+										{
+											"key": "X-Content-Type-Options",
+											"value": "nosniff"
+										},
+										{
+											"key": "Set-Cookie",
+											"value": "app_sessions=8nv6lpckjlu8hd48asl9f20gtv1026ap; expires=Thu, 13-Apr-2023 05:57:39 GMT; Max-Age=7200; path=/; SameSite=Lax; HttpOnly"
+										},
+										{
+											"key": "Expires",
+											"value": "Wed, 11 Jan 1984 05:00:00 GMT"
+										},
+										{
+											"key": "Cache-Control",
+											"value": "max-age=0, no-cache, no-store, must-revalidate"
+										},
+										{
+											"key": "Pragma",
+											"value": "no-cache"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Access-Control-Allow-Headers",
+											"value": "Origin ,X-Requested-With ,Content-Type ,Accept ,Access-Control-Request-Method ,Access-Control-Allow-Origin"
+										},
+										{
+											"key": "Access-Control-Allow-Methods",
+											"value": "GET ,POST ,OPTIONS ,PUT ,PATCH ,DELETE"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5, max=100"
+										},
+										{
+											"key": "Connection",
+											"value": "Keep-Alive"
+										},
+										{
+											"key": "Transfer-Encoding",
+											"value": "chunked"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"Detail video\",\n    \"data\": [\n        {\n            \"id\": \"129\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [\n                {\n                    \"id\": \"1\",\n                    \"nama\": \"Islami\"\n                },\n                {\n                    \"id\": \"3\",\n                    \"nama\": \"Idul Fitri\"\n                },\n                {\n                    \"id\": \"5\",\n                    \"nama\": \"Ceramah\"\n                }\n            ],\n            \"related_videos\": {\n                \"id\": \"129\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"130\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [\n                {\n                    \"id\": \"6\",\n                    \"nama\": \"Kutbah\"\n                }\n            ],\n            \"related_videos\": {\n                \"id\": \"130\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"131\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"131\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"132\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"132\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"133\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"133\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"134\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [\n                {\n                    \"id\": \"2\",\n                    \"nama\": \"Sholawat\"\n                }\n            ],\n            \"related_videos\": {\n                \"id\": \"134\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"135\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"135\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"136\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"136\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"137\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"137\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"138\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"138\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"139\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"139\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"140\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"140\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"141\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"141\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"142\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"142\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"143\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"143\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"144\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"144\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"145\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"145\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"146\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"146\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"147\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"147\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"148\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"148\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"149\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"149\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"150\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"150\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"151\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"151\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"152\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"152\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"153\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"153\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"154\",\n            \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n            \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n            \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n            \"created_at\": \"2023-04-10 14:02:04\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"154\",\n                \"judul\": \"Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat\",\n                \"deskripsi\": \"<p>Hadiah Allah Ketika Mengalami Kesulitan - Ustadz Adi Hidayat Spesial kajian musawarah ----------------- Mari sebarkan kebaikan seluas-luasnya dengan membagikan video ini, subscribe channel, dan aktifkan notifikasi untuk mendapatkan ilmu dan informasi terbaru dari Ustaz Adi Hidayat, Lc., M.A. (UAH) <a href=\\\"https://www.youtube.com/hashtag/kajianuah\\\" target=\\\"\\\">#KajianUAH</a> <a href=\\\"https://www.youtube.com/hashtag/kajianmusawarah\\\" target=\\\"\\\">#kajianmusawarah</a></p>\\r\\n\",\n                \"url_youtube\": \"https://youtu.be/izYUMrsvVDQ\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/izYUMrsvVDQ/hqdefault.jpg\",\n                \"created_at\": \"2023-04-10 14:02:04\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"155\",\n            \"judul\": \"Testing Memperbaiki Etika\",\n            \"deskripsi\": \"<p>Kajian Islam: Memperbaiki Etika - Ustadz Dr. Syafiq Reza Basalamah, M.A ETIKA ORANG BERIMAN : UCAPAN YANG BAIK, MEMULIAKAN TETANGGA DAN MENGHORMATI TAMU عَنْ أَبِيْ هُرَيْرَةَ رَضِيَ اللهُ عَنْهُ عَنْ رَسُوْلِ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ : (( مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيُكْرِمْ جَارَهُ ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيُكْرِمْ ضَيْفَهُ)). رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ. Dari Abu Hurairah Radhiyallahu &#39;anhu , dari Rasulullah Shallallahu &#39;alaihi wa sallam , beliau bersabda: &quot;Barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia berkata baik atau diam. Barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia menghormati tetangganya. Dan barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia memuliakan tamunya&quot;. [HR al-Bukh&acirc;ri dan Muslim].</p>\\r\\n\",\n            \"url_youtube\": \"https://www.youtube.com/watch?v=VAifG501gAM\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/be.com/watch?v=VAifG501gAM/hqdefault.jpg\",\n            \"created_at\": \"2023-04-11 14:25:19\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"155\",\n                \"judul\": \"Testing Memperbaiki Etika\",\n                \"deskripsi\": \"<p>Kajian Islam: Memperbaiki Etika - Ustadz Dr. Syafiq Reza Basalamah, M.A ETIKA ORANG BERIMAN : UCAPAN YANG BAIK, MEMULIAKAN TETANGGA DAN MENGHORMATI TAMU عَنْ أَبِيْ هُرَيْرَةَ رَضِيَ اللهُ عَنْهُ عَنْ رَسُوْلِ اللهِ صَلَّى اللهُ عَلَيْهِ وَسَلَّمَ قَالَ : (( مَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيَقُلْ خَيْرًا أَوْ لِيَصْمُتْ ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيُكْرِمْ جَارَهُ ، وَمَنْ كَانَ يُؤْمِنُ بِاللهِ وَالْيَوْمِ اْلآخِرِ فَلْيُكْرِمْ ضَيْفَهُ)). رَوَاهُ الْبُخَارِيُّ وَمُسْلِمٌ. Dari Abu Hurairah Radhiyallahu &#39;anhu , dari Rasulullah Shallallahu &#39;alaihi wa sallam , beliau bersabda: &quot;Barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia berkata baik atau diam. Barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia menghormati tetangganya. Dan barang siapa beriman kepada Allah dan hari Akhir, hendaklah ia memuliakan tamunya&quot;. [HR al-Bukh&acirc;ri dan Muslim].</p>\\r\\n\",\n                \"url_youtube\": \"https://www.youtube.com/watch?v=VAifG501gAM\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/be.com/watch?v=VAifG501gAM/hqdefault.jpg\",\n                \"created_at\": \"2023-04-11 14:25:19\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"157\",\n            \"judul\": \"Testing Menggali Potensi Zakat di Kalangan Menengah Muslim Indonesia | NU Online x LAZISNU\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"https://www.youtube.com/watch?v=mM9EVoYZnyI1\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/be.com/watch?v=mM9EVoYZnyI1/hqdefault.jpg\",\n            \"created_at\": \"2023-04-12 10:17:59\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"157\",\n                \"judul\": \"Testing Menggali Potensi Zakat di Kalangan Menengah Muslim Indonesia | NU Online x LAZISNU\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"https://www.youtube.com/watch?v=mM9EVoYZnyI1\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/be.com/watch?v=mM9EVoYZnyI1/hqdefault.jpg\",\n                \"created_at\": \"2023-04-12 10:17:59\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"160\",\n            \"judul\": \"testing satu dua\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"testing satu duaaa\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/a/hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:13:12\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"160\",\n                \"judul\": \"testing satu dua\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"testing satu duaaa\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/a/hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:13:12\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"161\",\n            \"judul\": \"testing 1\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"https://www.example.com\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/le.com/hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:14:00\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"161\",\n                \"judul\": \"testing 1\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"https://www.example.com\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/le.com/hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:14:00\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"163\",\n            \"judul\": \"testing tiga\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"example.com\",\n            \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:15:21\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"163\",\n                \"judul\": \"testing tiga\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"example.com\",\n                \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:15:21\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"164\",\n            \"judul\": \"testing empat\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"abc testing\",\n            \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:16:06\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"164\",\n                \"judul\": \"testing empat\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"abc testing\",\n                \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:16:06\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"165\",\n            \"judul\": \"https://www.youtube.com/watch?v=VAifG501gAM\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"link video testing\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/g/hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:18:07\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"165\",\n                \"judul\": \"https://www.youtube.com/watch?v=VAifG501gAM\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"link video testing\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/g/hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:18:07\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"166\",\n            \"judul\": \"111111111111111111111111111111\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"abc testing\",\n            \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:18:27\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"166\",\n                \"judul\": \"111111111111111111111111111111\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"abc testing\",\n                \"thumbnail\": \"https://i.ytimg.com/vi//hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:18:27\",\n                \"created_by\": \"1\"\n            }\n        },\n        {\n            \"id\": \"167\",\n            \"judul\": \"testing testing\",\n            \"deskripsi\": null,\n            \"url_youtube\": \"http://www.site.com:8008\",\n            \"thumbnail\": \"https://i.ytimg.com/vi/om:8008/hqdefault.jpg\",\n            \"created_at\": \"2023-04-13 09:22:18\",\n            \"created_by\": \"1\",\n            \"categories\": [],\n            \"related_videos\": {\n                \"id\": \"167\",\n                \"judul\": \"testing testing\",\n                \"deskripsi\": null,\n                \"url_youtube\": \"http://www.site.com:8008\",\n                \"thumbnail\": \"https://i.ytimg.com/vi/om:8008/hqdefault.jpg\",\n                \"created_at\": \"2023-04-13 09:22:18\",\n                \"created_by\": \"1\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "Get List Playlist",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}playlist/playlist/1",
+									"host": [
+										"{{url}}playlist"
+									],
+									"path": [
+										"playlist",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Detail Playlist",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{url}}playlist/detail/2",
+									"host": [
+										"{{url}}playlist"
+									],
+									"path": [
+										"detail",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZF91c2VyIjoiMTciLCJpZF9ncm91cCI6IjIiLCJ0aW1lc3RhbXAiOiIyMDIyLTA2LTAzIDAyOjMyOjQzIn0.qeQuNgZmYlp1AyGCClFAto47yjgjDo8IaU8UwH89jCQ",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "api_key",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "url",
+			"value": "https://sajada.arkatama.id/api/back/",
+			"type": "string"
+		},
+		{
+			"key": "url",
+			"value": "http://localhost:83/sajada/back/api/",
+			"type": "string",
+			"disabled": true
+		},
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
